@@ -33,7 +33,7 @@ public class Runnable {
 				Bukkit.getOnlinePlayers().forEach(p1 -> {
 					final Set<Team> teams = Collections.unmodifiableSet(p1.getScoreboard().getTeams());
 					Bukkit.getOnlinePlayers().forEach(p2 -> {
-						String team;
+						final String team;
 						if(p2.hasPermission("sbnametags.black")) {
 							team = "black";
 						} else if(p2.hasPermission("sbnametags.dark_blue")) {
