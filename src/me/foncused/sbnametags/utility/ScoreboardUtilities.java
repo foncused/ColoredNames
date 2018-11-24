@@ -11,39 +11,39 @@ public class ScoreboardUtilities {
 	public static void setColors(final Set<Team> teams) {
 		teams.forEach(team -> {
 			switch(team.getName()) {
-				case "black": team.setPrefix(ChatColor.BLACK.toString()); break;
-				case "dark_blue": team.setPrefix(ChatColor.DARK_BLUE.toString()); break;
-				case "dark_green": team.setPrefix(ChatColor.DARK_GREEN.toString()); break;
-				case "dark_aqua": team.setPrefix(ChatColor.DARK_AQUA.toString()); break;
-				case "dark_red": team.setPrefix(ChatColor.DARK_RED.toString()); break;
-				case "dark_purple": team.setPrefix(ChatColor.DARK_PURPLE.toString()); break;
-				case "gold": team.setPrefix(ChatColor.GOLD.toString()); break;
-				case "gray": team.setPrefix(ChatColor.GRAY.toString()); break;
-				case "dark_gray": team.setPrefix(ChatColor.DARK_GRAY.toString()); break;
-				case "blue": team.setPrefix(ChatColor.BLUE.toString()); break;
-				case "green": team.setPrefix(ChatColor.GREEN.toString()); break;
-				case "aqua": team.setPrefix(ChatColor.AQUA.toString()); break;
-				case "red": team.setPrefix(ChatColor.RED.toString()); break;
-				case "light_purple": team.setPrefix(ChatColor.LIGHT_PURPLE.toString()); break;
-				case "yellow": team.setPrefix(ChatColor.YELLOW.toString()); break;
-				case "white": team.setPrefix(ChatColor.WHITE.toString()); break;
-				case "obfuscated": team.setPrefix(ChatColor.MAGIC.toString()); break;
-				case "bold": team.setPrefix(ChatColor.BOLD.toString()); break;
-				case "strikethrough": team.setPrefix(ChatColor.STRIKETHROUGH.toString()); break;
-				case "underline": team.setPrefix(ChatColor.UNDERLINE.toString()); break;
-				case "italic": team.setPrefix(ChatColor.ITALIC.toString()); break;
-				default: team.setPrefix(ChatColor.WHITE.toString()); break;
+				case "black": team.setColor(ChatColor.BLACK); break;
+				case "dark_blue": team.setColor(ChatColor.DARK_BLUE); break;
+				case "dark_green": team.setColor(ChatColor.DARK_GREEN); break;
+				case "dark_aqua": team.setColor(ChatColor.DARK_AQUA); break;
+				case "dark_red": team.setColor(ChatColor.DARK_RED); break;
+				case "dark_purple": team.setColor(ChatColor.DARK_PURPLE); break;
+				case "gold": team.setColor(ChatColor.GOLD); break;
+				case "gray": team.setColor(ChatColor.GRAY); break;
+				case "dark_gray": team.setColor(ChatColor.DARK_GRAY); break;
+				case "blue": team.setColor(ChatColor.BLUE); break;
+				case "green": team.setColor(ChatColor.GREEN); break;
+				case "aqua": team.setColor(ChatColor.AQUA); break;
+				case "red": team.setColor(ChatColor.RED); break;
+				case "light_purple": team.setColor(ChatColor.LIGHT_PURPLE); break;
+				case "yellow": team.setColor(ChatColor.YELLOW); break;
+				case "white": team.setColor(ChatColor.WHITE); break;
+				case "obfuscated": team.setColor(ChatColor.MAGIC); break;
+				case "bold": team.setColor(ChatColor.BOLD); break;
+				case "strikethrough": team.setColor(ChatColor.STRIKETHROUGH); break;
+				case "underline": team.setColor(ChatColor.UNDERLINE); break;
+				case "italic": team.setColor(ChatColor.ITALIC); break;
+				default: team.setColor(ChatColor.WHITE); break;
 			}
 		});
 	}
 
-	public static void selectTeam(final String teamName, final Set<Team> teams, final Player player) {
-		final String name = player.getName();
-		teams.stream().filter(team -> (!(team.hasEntry(name)))).forEach(team -> {
-			if(!(team.getName().equals(teamName))) {
-				team.removeEntry(name);
+	public static void selectTeam(final Player player, final String team, final Set<Team> teams) {
+		teams.forEach(t -> {
+			final String name = player.getName();
+			if(t.getName().equals(team)) {
+				t.addEntry(name);
 			} else {
-				team.addEntry(name);
+				t.removeEntry(name);
 			}
 		});
 	}

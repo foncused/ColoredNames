@@ -79,7 +79,7 @@ public class Runnable {
 						} else {
 							return;
 						}
-						ScoreboardUtilities.selectTeam(team, teams, p2);
+						ScoreboardUtilities.selectTeam(p2, team, teams);
 						ScoreboardUtilities.setColors(teams);
 						if(!(tablist)) {
 							p2.setPlayerListName(ChatColor.RESET + p2.getPlayerListName());
