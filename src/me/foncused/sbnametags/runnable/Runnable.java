@@ -1,8 +1,8 @@
 package me.foncused.sbnametags.runnable;
 
-import me.foncused.sbnametags.utility.ScoreboardUtilities;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
@@ -79,8 +79,8 @@ public class Runnable {
 						} else {
 							return;
 						}
-						ScoreboardUtilities.selectTeam(p2, team, teams);
-						ScoreboardUtilities.setColors(teams);
+						selectTeam(p2, team, teams);
+						setColors(teams);
 						if(!(tablist)) {
 							p2.setPlayerListName(ChatColor.RESET + p2.getPlayerListName());
 						}
@@ -88,6 +88,46 @@ public class Runnable {
 				});
 			}
 		}.runTaskTimer(instance, 0, 1 * 20);
+	}
+
+	private static void selectTeam(final Player player, final String team, final Set<Team> teams) {
+		teams.forEach(t -> {
+			final String name = player.getName();
+			if(t.getName().equals(team)) {
+				t.addEntry(name);
+			} else {
+				t.removeEntry(name);
+			}
+		});
+	}
+
+	private static void setColors(final Set<Team> teams) {
+		teams.forEach(team -> {
+			switch(team.getName()) {
+				case "black": team.setColor(ChatColor.BLACK); break;
+				case "dark_blue": team.setColor(ChatColor.DARK_BLUE); break;
+				case "dark_green": team.setColor(ChatColor.DARK_GREEN); break;
+				case "dark_aqua": team.setColor(ChatColor.DARK_AQUA); break;
+				case "dark_red": team.setColor(ChatColor.DARK_RED); break;
+				case "dark_purple": team.setColor(ChatColor.DARK_PURPLE); break;
+				case "gold": team.setColor(ChatColor.GOLD); break;
+				case "gray": team.setColor(ChatColor.GRAY); break;
+				case "dark_gray": team.setColor(ChatColor.DARK_GRAY); break;
+				case "blue": team.setColor(ChatColor.BLUE); break;
+				case "green": team.setColor(ChatColor.GREEN); break;
+				case "aqua": team.setColor(ChatColor.AQUA); break;
+				case "red": team.setColor(ChatColor.RED); break;
+				case "light_purple": team.setColor(ChatColor.LIGHT_PURPLE); break;
+				case "yellow": team.setColor(ChatColor.YELLOW); break;
+				case "white": team.setColor(ChatColor.WHITE); break;
+				case "obfuscated": team.setColor(ChatColor.MAGIC); break;
+				case "bold": team.setColor(ChatColor.BOLD); break;
+				case "strikethrough": team.setColor(ChatColor.STRIKETHROUGH); break;
+				case "underline": team.setColor(ChatColor.UNDERLINE); break;
+				case "italic": team.setColor(ChatColor.ITALIC); break;
+				default: team.setColor(ChatColor.WHITE); break;
+			}
+		});
 	}
 
 }
