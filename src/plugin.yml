@@ -1,0 +1,72 @@
+name: SBNameTags
+main: me.foncused.sbnametags.main.SBNameTags
+version: 1.6.1
+author: foncused
+
+permissions:
+  sbnametags.all:
+    default: false
+    children:
+      sbnametags.black: true
+      sbnametags.dark_blue: true
+      sbnametags.dark_green: true
+      sbnametags.dark_aqua: true
+      sbnametags.dark_red: true
+      sbnametags.dark_purple: true
+      sbnametags.gold: true
+      sbnametags.gray: true
+      sbnametags.dark_gray: true
+      sbnametags.blue: true
+      sbnametags.green: true
+      sbnametags.aqua: true
+      sbnametags.red: true
+      sbnametags.light_purple: true
+      sbnametags.yellow: true
+      sbnametags.white: true
+      sbnametags.obfuscated: true
+      sbnametags.bold: true
+      sbnametags.strikethrough: true
+      sbnametags.underline: true
+      sbnametags.italic: true
+  sbnametags.black:
+    default: false
+  sbnametags.dark_blue:
+    default: false
+  sbnametags.dark_green:
+    default: false
+  sbnametags.dark_aqua:
+    default: false
+  sbnametags.dark_red:
+    default: false
+  sbnametags.dark_purple:
+    default: false
+  sbnametags.gold:
+    default: false
+  sbnametags.gray:
+    default: false
+  sbnametags.dark_gray:
+    default: false
+  sbnametags.blue:
+    default: false
+  sbnametags.green:
+    default: false
+  sbnametags.aqua:
+    default: false
+  sbnametags.red:
+    default: false
+  sbnametags.light_purple:
+    default: false
+  sbnametags.yellow:
+    default: false
+  sbnametags.white:
+    default: false
+  sbnametags.obfuscated:
+    default: false
+  sbnametags.bold:
+    default: false
+  sbnametags.strikethrough:
+    default: false
+  sbnametags.underline:
+    default: false
+  sbnametags.italic:
+    default: false

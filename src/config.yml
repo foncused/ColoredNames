@@ -1,0 +1,6 @@
+# @plugin SBNameTags
+# @version 1.6.1
+# @author foncused
+
+# Do you want names to be colored in the tablist?
+tablist: true
