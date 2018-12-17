@@ -13,7 +13,7 @@ public class Runnable {
 
 	private SBNameTags plugin;
 	private boolean tablist = true;
-	private int refresh = 3;
+	private int refresh = 60;
 
 	public Runnable(final SBNameTags plugin) {
 		this.plugin = plugin;
@@ -117,7 +117,7 @@ public class Runnable {
 					});
 				});
 			}
-		}.runTaskTimer(this.plugin, 0, this.refresh * 20);
+		}.runTaskTimer(this.plugin, 0, this.refresh);
 	}
 
 }

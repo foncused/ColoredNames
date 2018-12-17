@@ -6,4 +6,4 @@
 tablist: true
 
 # How often in seconds should scoreboards be updated?
-refresh: 3
+refresh: 60
