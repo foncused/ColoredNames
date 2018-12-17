@@ -1,6 +1,6 @@
 name: SBNameTags
-main: me.foncused.sbnametags.main.SBNameTags
-version: 1.6.1
+main: me.foncused.sbnametags.SBNameTags
+version: 1.6.2
 author: foncused
 
 permissions:

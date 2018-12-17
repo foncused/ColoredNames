@@ -1,6 +1,9 @@
 # @plugin SBNameTags
-# @version 1.6.1
+# @version 1.6.2
 # @author foncused
 
 # Do you want names to be colored in the tablist?
 tablist: true
+
+# How often in seconds should scoreboards be updated?
+refresh: 3

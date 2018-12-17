@@ -1,9 +1,8 @@
 package me.foncused.sbnametags.runnable;
 
+import me.foncused.sbnametags.SBNameTags;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
 
@@ -12,22 +11,23 @@ import java.util.Set;
 
 public class Runnable {
 
-	private static JavaPlugin instance;
-	private static boolean tablist = true;
+	private SBNameTags plugin;
+	private boolean tablist = true;
+	private int refresh = 3;
 
-	public static void inject(final JavaPlugin instance) {
-		Runnable.instance = instance;
+	public Runnable(final SBNameTags plugin) {
+		this.plugin = plugin;
 	}
 
-	public static void setTablist(final boolean tablist) {
-		Runnable.tablist = tablist;
+	public void setTablist(final boolean tablist) {
+		this.tablist = tablist;
 	}
 
-	private Runnable() {
-		throw new IllegalStateException();
+	public void setRefresh(final int refresh) {
+		this.refresh = refresh;
 	}
 
-	public static void runPlayerNameTagsTask() {
+	public void runPlayerNameTagsTask() {
 		new BukkitRunnable() {
 			public void run() {
 				Bukkit.getOnlinePlayers().forEach(p1 -> {
@@ -79,55 +79,45 @@ public class Runnable {
 						} else {
 							return;
 						}
-						selectTeam(p2, team, teams);
-						setColors(teams);
+						teams.forEach(t -> {
+							final String name = p2.getName();
+							if(t.getName().equals(team)) {
+								t.addEntry(name);
+							} else {
+								t.removeEntry(name);
+							}
+							switch(t.getName()) {
+								case "black": t.setColor(ChatColor.BLACK); break;
+								case "dark_blue": t.setColor(ChatColor.DARK_BLUE); break;
+								case "dark_green": t.setColor(ChatColor.DARK_GREEN); break;
+								case "dark_aqua": t.setColor(ChatColor.DARK_AQUA); break;
+								case "dark_red": t.setColor(ChatColor.DARK_RED); break;
+								case "dark_purple": t.setColor(ChatColor.DARK_PURPLE); break;
+								case "gold": t.setColor(ChatColor.GOLD); break;
+								case "gray": t.setColor(ChatColor.GRAY); break;
+								case "dark_gray": t.setColor(ChatColor.DARK_GRAY); break;
+								case "blue": t.setColor(ChatColor.BLUE); break;
+								case "green": t.setColor(ChatColor.GREEN); break;
+								case "aqua": t.setColor(ChatColor.AQUA); break;
+								case "red": t.setColor(ChatColor.RED); break;
+								case "light_purple": t.setColor(ChatColor.LIGHT_PURPLE); break;
+								case "yellow": t.setColor(ChatColor.YELLOW); break;
+								case "white": t.setColor(ChatColor.WHITE); break;
+								case "obfuscated": t.setColor(ChatColor.MAGIC); break;
+								case "bold": t.setColor(ChatColor.BOLD); break;
+								case "strikethrough": t.setColor(ChatColor.STRIKETHROUGH); break;
+								case "underline": t.setColor(ChatColor.UNDERLINE); break;
+								case "italic": t.setColor(ChatColor.ITALIC); break;
+								default: t.setColor(ChatColor.WHITE); break;
+							}
+						});
 						if(!(tablist)) {
 							p2.setPlayerListName(ChatColor.RESET + p2.getPlayerListName());
 						}
 					});
 				});
 			}
-		}.runTaskTimer(instance, 0, 1 * 20);
-	}
-
-	private static void selectTeam(final Player player, final String team, final Set<Team> teams) {
-		teams.forEach(t -> {
-			final String name = player.getName();
-			if(t.getName().equals(team)) {
-				t.addEntry(name);
-			} else {
-				t.removeEntry(name);
-			}
-		});
-	}
-
-	private static void setColors(final Set<Team> teams) {
-		teams.forEach(team -> {
-			switch(team.getName()) {
-				case "black": team.setColor(ChatColor.BLACK); break;
-				case "dark_blue": team.setColor(ChatColor.DARK_BLUE); break;
-				case "dark_green": team.setColor(ChatColor.DARK_GREEN); break;
-				case "dark_aqua": team.setColor(ChatColor.DARK_AQUA); break;
-				case "dark_red": team.setColor(ChatColor.DARK_RED); break;
-				case "dark_purple": team.setColor(ChatColor.DARK_PURPLE); break;
-				case "gold": team.setColor(ChatColor.GOLD); break;
-				case "gray": team.setColor(ChatColor.GRAY); break;
-				case "dark_gray": team.setColor(ChatColor.DARK_GRAY); break;
-				case "blue": team.setColor(ChatColor.BLUE); break;
-				case "green": team.setColor(ChatColor.GREEN); break;
-				case "aqua": team.setColor(ChatColor.AQUA); break;
-				case "red": team.setColor(ChatColor.RED); break;
-				case "light_purple": team.setColor(ChatColor.LIGHT_PURPLE); break;
-				case "yellow": team.setColor(ChatColor.YELLOW); break;
-				case "white": team.setColor(ChatColor.WHITE); break;
-				case "obfuscated": team.setColor(ChatColor.MAGIC); break;
-				case "bold": team.setColor(ChatColor.BOLD); break;
-				case "strikethrough": team.setColor(ChatColor.STRIKETHROUGH); break;
-				case "underline": team.setColor(ChatColor.UNDERLINE); break;
-				case "italic": team.setColor(ChatColor.ITALIC); break;
-				default: team.setColor(ChatColor.WHITE); break;
-			}
-		});
+		}.runTaskTimer(this.plugin, 0, this.refresh * 20);
 	}
 
 }
