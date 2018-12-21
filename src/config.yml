@@ -2,8 +2,8 @@
 # @version 1.6.2
 # @author foncused
 
-# Do you want names to be colored in the tablist?
+# True to color the tablist, false if not
 tablist: true
 
-# How often in seconds should scoreboards be updated?
-refresh: 60
+# Time in seconds to refresh scoreboards
+refresh: 3

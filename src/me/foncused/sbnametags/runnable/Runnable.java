@@ -12,18 +12,12 @@ import java.util.Set;
 public class Runnable {
 
 	private SBNameTags plugin;
-	private boolean tablist = true;
-	private int refresh = 60;
+	private boolean tablist;
+	private int refresh;
 
-	public Runnable(final SBNameTags plugin) {
+	public Runnable(final SBNameTags plugin, final boolean tablist, final int refresh) {
 		this.plugin = plugin;
-	}
-
-	public void setTablist(final boolean tablist) {
 		this.tablist = tablist;
-	}
-
-	public void setRefresh(final int refresh) {
 		this.refresh = refresh;
 	}
 
@@ -117,7 +111,7 @@ public class Runnable {
 					});
 				});
 			}
-		}.runTaskTimer(this.plugin, 0, this.refresh);
+		}.runTaskTimer(this.plugin, 0, this.refresh * 20);
 	}
 
 }

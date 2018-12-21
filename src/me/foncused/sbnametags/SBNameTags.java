@@ -8,6 +8,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class SBNameTags extends JavaPlugin {
 
+	private final String PREFIX = "[SBNameTags] ";
+
 	@Override
 	public void onEnable() {
 		this.registerConfig();
@@ -24,11 +26,24 @@ public class SBNameTags extends JavaPlugin {
 	}
 
 	private void registerRunnables() {
-		final Runnable runnable = new Runnable(this);
 		final FileConfiguration config = this.getConfig();
-		runnable.setTablist(config.getBoolean("tablist"));
-		runnable.setRefresh(config.getInt("refresh"));
-		runnable.runPlayerNameTagsTask();
+		final boolean tablist = config.getBoolean("tablist");
+		this.console(tablist ? "Tablist mode activated" : "Tablist mode deactivated");
+		int refresh = config.getInt("refresh");
+		if(refresh <= 0) {
+			this.consoleWarning("Set refresh to " + refresh + " seconds is not safe, reverting to default...");
+			refresh = 3;
+		}
+		this.console("Set refresh to " + refresh + " seconds");
+		new Runnable(this, tablist, refresh).runPlayerNameTagsTask();
+	}
+
+	private void console(final String message) {
+		Bukkit.getLogger().info(this.PREFIX + message);
+	}
+
+	private void consoleWarning(final String message) {
+		Bukkit.getLogger().warning(this.PREFIX + message);
 	}
 
 }
