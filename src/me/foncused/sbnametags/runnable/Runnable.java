@@ -11,9 +11,9 @@ import java.util.Set;
 
 public class Runnable {
 
-	private SBNameTags plugin;
-	private boolean tablist;
-	private int refresh;
+	private final SBNameTags plugin;
+	private final boolean tablist;
+	private final int refresh;
 
 	public Runnable(final SBNameTags plugin, final boolean tablist, final int refresh) {
 		this.plugin = plugin;
