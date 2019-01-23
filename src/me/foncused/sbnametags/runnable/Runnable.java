@@ -23,6 +23,7 @@ public class Runnable {
 
 	public void runPlayerNameTagsTask() {
 		new BukkitRunnable() {
+			@Override
 			public void run() {
 				Bukkit.getOnlinePlayers().forEach(p1 -> {
 					final Set<Team> teams = Collections.unmodifiableSet(p1.getScoreboard().getTeams());
