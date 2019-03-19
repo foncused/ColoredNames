@@ -27,9 +27,9 @@ public class SBNameTags extends JavaPlugin {
 
 	private void registerRunnables() {
 		final FileConfiguration config = this.getConfig();
-		final boolean tablist = config.getBoolean("tablist");
+		final boolean tablist = config.getBoolean("tablist", true);
 		this.console(tablist ? "Tablist mode activated" : "Tablist mode deactivated");
-		int refresh = config.getInt("refresh");
+		int refresh = config.getInt("refresh", 3);
 		if(refresh <= 0) {
 			this.consoleWarning("Set refresh to " + refresh + " seconds is not safe, reverting to default...");
 			refresh = 3;
