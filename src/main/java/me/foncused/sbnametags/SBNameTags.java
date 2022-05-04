@@ -22,7 +22,7 @@ public class SBNameTags extends JavaPlugin {
 	}
 
 	private void registerEvents() {
-		Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
+		this.getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
 	}
 
 	private void registerRunnables() {
