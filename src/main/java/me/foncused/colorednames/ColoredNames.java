@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ColoredNames extends JavaPlugin {
 
-	public static final String PREFIX = "[SBNameTags] ";
+	public static final String PREFIX = "[ColoredNames] ";
 
 	private ConfigManager cm;
 
