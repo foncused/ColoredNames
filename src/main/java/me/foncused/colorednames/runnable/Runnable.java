@@ -29,7 +29,7 @@ public class Runnable {
 					Bukkit.getOnlinePlayers().forEach(p2 -> {
 						String team = "white";
 						for(final String p : Bukkit.getPluginManager()
-								.getPermission("sbnametags.all")
+								.getPermission("colorednames.all")
 								.getChildren()
 								.keySet()
 						) {
