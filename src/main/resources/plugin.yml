@@ -1,72 +1,72 @@
-name: SBNameTags
-main: me.foncused.sbnametags.SBNameTags
-version: 1.6.6
+name: ColoredNames
+main: me.foncused.colorednames.ColoredNames
+version: 1.6.7
 author: foncused
 
 permissions:
   sbnametags.all:
     default: false
     children:
-      sbnametags.black: true
-      sbnametags.dark_blue: true
-      sbnametags.dark_green: true
-      sbnametags.dark_aqua: true
-      sbnametags.dark_red: true
-      sbnametags.dark_purple: true
-      sbnametags.gold: true
-      sbnametags.gray: true
-      sbnametags.dark_gray: true
-      sbnametags.blue: true
-      sbnametags.green: true
-      sbnametags.aqua: true
-      sbnametags.red: true
-      sbnametags.light_purple: true
-      sbnametags.yellow: true
-      sbnametags.white: true
-      sbnametags.obfuscated: true
-      sbnametags.bold: true
-      sbnametags.strikethrough: true
-      sbnametags.underline: true
-      sbnametags.italic: true
-  sbnametags.black:
+      colorednames.black: true
+      colorednames.dark_blue: true
+      colorednames.dark_green: true
+      colorednames.dark_aqua: true
+      colorednames.dark_red: true
+      colorednames.dark_purple: true
+      colorednames.gold: true
+      colorednames.gray: true
+      colorednames.dark_gray: true
+      colorednames.blue: true
+      colorednames.green: true
+      colorednames.aqua: true
+      colorednames.red: true
+      colorednames.light_purple: true
+      colorednames.yellow: true
+      colorednames.white: true
+      colorednames.obfuscated: true
+      colorednames.bold: true
+      colorednames.strikethrough: true
+      colorednames.underline: true
+      colorednames.italic: true
+  colorednames.black:
     default: false
-  sbnametags.dark_blue:
+  colorednames.dark_blue:
     default: false
-  sbnametags.dark_green:
+  colorednames.dark_green:
     default: false
-  sbnametags.dark_aqua:
+  colorednames.dark_aqua:
     default: false
-  sbnametags.dark_red:
+  colorednames.dark_red:
     default: false
-  sbnametags.dark_purple:
+  colorednames.dark_purple:
     default: false
-  sbnametags.gold:
+  colorednames.gold:
     default: false
-  sbnametags.gray:
+  colorednames.gray:
     default: false
-  sbnametags.dark_gray:
+  colorednames.dark_gray:
     default: false
-  sbnametags.blue:
+  colorednames.blue:
     default: false
-  sbnametags.green:
+  colorednames.green:
     default: false
-  sbnametags.aqua:
+  colorednames.aqua:
     default: false
-  sbnametags.red:
+  colorednames.red:
     default: false
-  sbnametags.light_purple:
+  colorednames.light_purple:
     default: false
-  sbnametags.yellow:
+  colorednames.yellow:
     default: false
-  sbnametags.white:
+  colorednames.white:
     default: false
-  sbnametags.obfuscated:
+  colorednames.obfuscated:
     default: false
-  sbnametags.bold:
+  colorednames.bold:
     default: false
-  sbnametags.strikethrough:
+  colorednames.strikethrough:
     default: false
-  sbnametags.underline:
+  colorednames.underline:
     default: false
-  sbnametags.italic:
+  colorednames.italic:
     default: false

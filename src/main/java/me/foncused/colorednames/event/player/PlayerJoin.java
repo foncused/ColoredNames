@@ -1,4 +1,4 @@
-package me.foncused.sbnametags.event.player;
+package me.foncused.colorednames.event.player;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

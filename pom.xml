@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.foncused</groupId>
-    <artifactId>sbnametags</artifactId>
-    <version>1.6.6</version>
+    <artifactId>colorednames</artifactId>
+    <version>1.6.7</version>
     <packaging>jar</packaging>
-    <name>SBNameTags</name>
-    <url>https://github.com/foncused/SBNameTags</url>
+    <name>ColoredNames</name>
+    <url>https://github.com/foncused/ColoredNames</url>
     <build>
         <finalName>${project.name}</finalName>
         <sourceDirectory>src/main/java/</sourceDirectory>
@@ -43,7 +43,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>me.foncused.sbnametags.SBNameTags</mainClass>
+                            <mainClass>me.foncused.colorednames.ColoredNames</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -71,7 +71,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18.2-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
