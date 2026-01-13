@@ -23,11 +23,6 @@ permissions:
       colorednames.light_purple: true
       colorednames.yellow: true
       colorednames.white: true
-      colorednames.obfuscated: true
-      colorednames.bold: true
-      colorednames.strikethrough: true
-      colorednames.underline: true
-      colorednames.italic: true
   colorednames.black:
     default: false
   colorednames.dark_blue:
@@ -59,14 +54,4 @@ permissions:
   colorednames.yellow:
     default: false
   colorednames.white:
-    default: false
-  colorednames.obfuscated:
-    default: false
-  colorednames.bold:
-    default: false
-  colorednames.strikethrough:
-    default: false
-  colorednames.underline:
-    default: false
-  colorednames.italic:
     default: false

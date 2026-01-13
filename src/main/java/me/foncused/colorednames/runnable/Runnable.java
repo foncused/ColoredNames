@@ -8,6 +8,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
 
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Set;
 
 public class Runnable {
@@ -28,10 +29,10 @@ public class Runnable {
 					final Set<Team> teams = Collections.unmodifiableSet(p1.getScoreboard().getTeams());
 					Bukkit.getOnlinePlayers().forEach(p2 -> {
 						String team = "white";
-						for(final String p : Bukkit.getPluginManager()
-								.getPermission("colorednames.all")
-								.getChildren()
-								.keySet()
+						for(final String p : Objects.requireNonNull(
+                                Bukkit.getPluginManager().getPermission("colorednames.all"))
+                                .getChildren()
+                                .keySet()
 						) {
 							if(p2.hasPermission(p)) {
 								team = p.split("\\.")[1];
@@ -61,11 +62,7 @@ public class Runnable {
 								case "red" -> t.setColor(ChatColor.RED);
 								case "light_purple" -> t.setColor(ChatColor.LIGHT_PURPLE);
 								case "yellow" -> t.setColor(ChatColor.YELLOW);
-								case "obfuscated" -> t.setColor(ChatColor.MAGIC);
-								case "bold" -> t.setColor(ChatColor.BOLD);
-								case "strikethrough" -> t.setColor(ChatColor.STRIKETHROUGH);
-								case "underline" -> t.setColor(ChatColor.UNDERLINE);
-								case "italic" -> t.setColor(ChatColor.ITALIC);
+                                case "white" -> t.setColor(ChatColor.WHITE);
 								default -> t.setColor(ChatColor.WHITE);
 							}
 						}
@@ -75,7 +72,7 @@ public class Runnable {
 					});
 				});
 			}
-		}.runTaskTimer(this.plugin, 0, this.cm.getRefresh() * 20);
+		}.runTaskTimer(this.plugin, 0, this.cm.getRefresh() * 20L);
 	}
 
 }

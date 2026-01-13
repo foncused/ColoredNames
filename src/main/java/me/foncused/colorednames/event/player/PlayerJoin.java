@@ -27,11 +27,6 @@ public class PlayerJoin implements Listener {
 		sb.registerNewTeam("light_purple");
 		sb.registerNewTeam("yellow");
 		sb.registerNewTeam("white");
-		sb.registerNewTeam("obfuscated");
-		sb.registerNewTeam("bold");
-		sb.registerNewTeam("strikethrough");
-		sb.registerNewTeam("underline");
-		sb.registerNewTeam("italic");
 		event.getPlayer().setScoreboard(sb);
 	}
 
