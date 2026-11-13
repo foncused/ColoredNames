@@ -45,6 +45,7 @@
                             <mainClass>me.foncused.colorednames.ColoredNames</mainClass>
                         </manifest>
                     </archive>
+                    <outputDirectory>/media/veracrypt2/Libraries/Minecraft/jars/</outputDirectory>
                 </configuration>
             </plugin>
             <!-- Maven Resources -->
